@@ -263,3 +263,13 @@ p {
     border-bottom-left-radius: 5px;
 }
 /* End Filters */
+footer {
+    text-align: center;
+    padding: 3px;
+    background-color: rgba(84, 88, 78, 0.829);
+    color: white;
+    position: fixed;
+    right: 0;
+    bottom: 0;
+    left: 0;
+}
