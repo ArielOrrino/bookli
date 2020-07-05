@@ -100,8 +100,6 @@ describe('Home Test', () => {
             .moveToElement('body > main > div > div.books-container > div > a:nth-child(1)', 10, 10, function() {
             browser.assert.cssProperty('body > main > div > div.books-container > div > a:nth-child(1)', 'opacity', '0.4')
             })
-
-
     });
 
     test('Deberia volver a home al presionar Atras en un libro', browser => {
@@ -149,12 +147,22 @@ describe('Home Test', () => {
      
     });
 
-
-
     test('Deberia mostrar el footer en el home', browser => {
         browser
             .url(BASE_URL)
             .waitForElementVisible('footer')
+    });
+
+    test('Deberia mostrar los bordes de las cards', browser => {
+        browser
+            .url(BASE_URL)
+            .waitForElementVisible('body')
+            .waitForElementVisible('.booklist')
+            .pause(400)
+            .moveToElement('body > main > div > div.books-container > div > a:nth-child(1) > div', 10, 10, function() {
+            browser.assert.cssProperty('body > main > div > div.books-container > div > a:nth-child(1) > div', 'border', '3px solid grey')
+            })
+
     });
 
 });
