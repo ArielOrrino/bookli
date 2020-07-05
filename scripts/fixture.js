@@ -17,6 +17,7 @@ const initBooks = () => {
                 rating: 0,
                 quantity_votes: 0,
                 status: BookModel.status.AVAILABLE,
+                quantity_pages: 100,
             })
         )
         .then(() =>
@@ -34,6 +35,7 @@ const initBooks = () => {
                 rating: 0,
                 quantity_votes: 0,
                 status: BookModel.status.AVAILABLE,
+                quantity_pages: 120,
             })
         )
         .then(() =>
@@ -51,6 +53,7 @@ const initBooks = () => {
                 rating: 0,
                 quantity_votes: 0,
                 status: BookModel.status.AVAILABLE,
+                quantity_pages: 140,
             })
         )
         .then(() =>
@@ -69,6 +72,7 @@ const initBooks = () => {
                 rating: 0,
                 quantity_votes: 0,
                 status: BookModel.status.AVAILABLE,
+                quantity_pages: 120,
             })
         )
         .then(() =>
@@ -86,6 +90,7 @@ const initBooks = () => {
                 rating: 0,
                 quantity_votes: 0,
                 status: BookModel.status.AVAILABLE,
+                quantity_pages: 200,
             })
         )
         .then(() =>
@@ -103,6 +108,7 @@ const initBooks = () => {
                 rating: 0,
                 quantity_votes: 0,
                 status: BookModel.status.AVAILABLE,
+                quantity_pages: 210,
             })
         )
         .then(() =>
@@ -120,6 +126,7 @@ const initBooks = () => {
                 rating: 0,
                 quantity_votes: 0,
                 status: BookModel.status.AVAILABLE,
+                quantity_pages: 135,
             })
         )
         .then(() =>
@@ -137,6 +144,7 @@ const initBooks = () => {
                 rating: 0,
                 quantity_votes: 0,
                 status: BookModel.status.AVAILABLE,
+                quantity_pages: 210,
             })
         )
         .then(() =>
@@ -154,6 +162,7 @@ const initBooks = () => {
                 rating: 0,
                 quantity_votes: 0,
                 status: BookModel.status.AVAILABLE,
+                quantity_pages: 215,
             })
         )
         .then(() =>
@@ -171,6 +180,7 @@ const initBooks = () => {
                 quantity_votes: 0,
                 cover: '/assets/covers/animal-farm.jpg',
                 status: BookModel.status.AVAILABLE,
+                quantity_pages: 120,
             })
         );
 };

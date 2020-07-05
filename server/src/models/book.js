@@ -72,6 +72,9 @@ const Book = db.define(
             allowNull: false,
             values: [AVAILABLE, READING, FINISHED],
         },
+        quantity_pages: {
+            type: Sequelize.INTEGER,
+        },
     },
     { tableName: 'Book' }
 );
