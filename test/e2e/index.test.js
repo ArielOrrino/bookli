@@ -120,6 +120,12 @@ describe('Home Test', () => {
             .url().equal(BASE_URL+'/');
     });
 
+    test('Deberia mostrar el footer en el home', browser => {
+        browser
+            .url(BASE_URL)
+            .waitForElementVisible('footer')
+    });
+
 });
 
 describe('Detail view', () => {
@@ -268,5 +274,11 @@ describe('Detail view', () => {
         browser.expect
             .element('.book__extra-info').text.to.contains('Argentina');
 
+    });
+
+    test('Deberia mostrar el footer en los detalles del libro', browser => {
+        browser
+            .url(BASE_URL)
+            .waitForElementVisible('footer')
     });
 });
