@@ -160,7 +160,7 @@ describe('Home Test', () => {
             .waitForElementVisible('.booklist')
             .pause(400)
             .moveToElement('body > main > div > div.books-container > div > a:nth-child(1) > div', 10, 10, function() {
-            browser.assert.cssProperty('body > main > div > div.books-container > div > a:nth-child(1) > div', 'border', '3px solid grey')
+            browser.assert.cssProperty('body > main > div > div.books-container > div > a:nth-child(1) > div', 'border', '3px solid rgb(128, 128, 128)')
             })
 
     });
