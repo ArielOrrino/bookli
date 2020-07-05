@@ -39,10 +39,8 @@ async function changeFilter(status) {
 async function getAllBooks() {
 
     const books = await bookService.getAll();
-    var listOfBook
-    listOfBook = [];
+    let listOfBook = [];
 
-    console.log(books[1].status);
 
     for(var i = 0; i < books.length; i++)
      {
