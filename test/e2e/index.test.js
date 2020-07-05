@@ -320,4 +320,17 @@ describe('Detail view', () => {
             .url(BASE_URL)
             .waitForElementVisible('footer')
     });
+
+    test('Deberia mostrar el ISBN en los libros', browser => {
+        browser
+            .url(BASE_URL + '/detail/1')
+            .waitForElementVisible('body')
+            .waitForElementVisible('.book__body')
+            .waitForElementVisible('.book__extra-info')
+            browser.expect
+            .element('.book__extra-info').text.to.contains('El ISBN del libro es 9788499089515');
+    });
+
+    
 });
+
