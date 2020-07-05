@@ -341,6 +341,26 @@ describe('Detail view', () => {
             .element('.book__extra-info').text.to.contains('Consta de 100 paginas');
     });
 
+    test('Deberia mostrar el boton para comprar el libro', browser => {
+        browser
+            .url(BASE_URL + '/detail/1')
+            .waitForElementVisible('body')
+            .waitForElementVisible('.comprar')
+    });
+
+    test('Deberia redirigirme a amazon al presionar el boton comprar', browser => {
+        browser
+            .url(BASE_URL + '/detail/1')
+            .waitForElementVisible('body')
+            .waitForElementVisible('.comprar')
+            .click('.comprar')
+            .waitForElementVisible('body');
+        browser.expect
+            .url().contains('https://www.amazon.com/s?k=El+Aleph+Jorge+Luis+Borges');
+    });
+
+
+
 
 });
 
