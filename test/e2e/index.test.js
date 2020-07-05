@@ -120,15 +120,15 @@ describe('Home Test', () => {
 
 
     test('En la pagina de home deberia mostrar por defecto los libros en estado AVAILABLE', browser => {
-        
+
         browser
         .url(BASE_URL)
         .waitForElementVisible('body')
         .waitForElementVisible('.booklist .book')
-     
+
          browser.expect.elements('.booklist .book').count.to.equal(10);
-        
-        
+
+
         browser
         .url(BASE_URL + '/detail/1')
         .waitForElementVisible('body')
@@ -137,14 +137,14 @@ describe('Home Test', () => {
         browser
         .click('.book__actions [data-ref=addToList]')
         .waitForElementVisible('.book__actions [data-ref=removeFromList]');
-         
+
         browser
             .url(BASE_URL)
             .waitForElementVisible('body')
             .waitForElementVisible('.booklist .book')
-         
+
         browser.expect.elements('.booklist .book').count.to.equal(9);
-     
+
     });
 
     test('Deberia mostrar el footer en el home', browser => {
@@ -331,6 +331,16 @@ describe('Detail view', () => {
             .element('.book__extra-info').text.to.contains('El ISBN del libro es 9788499089515');
     });
 
-    
+    test('Deberia mostrar la cantidad de paginas en los detalles del libro', browser => {
+        browser
+            .url(BASE_URL + '/detail/1')
+            .waitForElementVisible('body')
+            .waitForElementVisible('.book__body')
+            .waitForElementVisible('.book__extra-info')
+            browser.expect
+            .element('.book__extra-info').text.to.contains('Consta de 100 paginas');
+    });
+
+
 });
 

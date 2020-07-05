@@ -29,6 +29,10 @@
 		Es un libro perteneciente a los géneros:
                 <span class="highlight">{{ book.genres | join(', ') }}</span>.
             </p>
+            <p>
+                Consta de
+                <span class="highlight">{{ book.quantity_pages}}</span> paginas.
+            </p>
         </div>
         {% endif %}
     </div>
