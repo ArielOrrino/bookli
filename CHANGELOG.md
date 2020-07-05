@@ -1,5 +1,16 @@
 Cualquier cambio notable en esta aplicacion, será volcada a este documento.
 
+
+V1.3.0(05-07-2020)
+1.Cambiado el color de borde a todas las cards.
+2.Agregado en el details un botón de "Comprar" con un link a la sección
+de libros de Amazon
+3.Agregado el ISBN en el detalle del libro.
+4.Agregado un atributo al modelo para la cantidad de páginas del libro y
+ahora se muestra en la UI de detalle del libro.
+5.Arreglado el filtro de libros en la primera carga de la home para que muestre solo los
+libros disponibles.
+
 V1.2.1(04-07-2020)
 Agregado del Footer a las paginas
 

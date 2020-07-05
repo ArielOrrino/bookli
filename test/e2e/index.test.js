@@ -100,8 +100,6 @@ describe('Home Test', () => {
             .moveToElement('body > main > div > div.books-container > div > a:nth-child(1)', 10, 10, function() {
             browser.assert.cssProperty('body > main > div > div.books-container > div > a:nth-child(1)', 'opacity', '0.4')
             })
-
-
     });
 
     test('Deberia volver a home al presionar Atras en un libro', browser => {
@@ -120,10 +118,51 @@ describe('Home Test', () => {
             .url().equal(BASE_URL+'/');
     });
 
+
+    test('En la pagina de home deberia mostrar por defecto los libros en estado AVAILABLE', browser => {
+
+        browser
+        .url(BASE_URL)
+        .waitForElementVisible('body')
+        .waitForElementVisible('.booklist .book')
+
+         browser.expect.elements('.booklist .book').count.to.equal(10);
+
+
+        browser
+        .url(BASE_URL + '/detail/1')
+        .waitForElementVisible('body')
+        .waitForElementVisible('.book__actions [data-ref=addToList]');
+
+        browser
+        .click('.book__actions [data-ref=addToList]')
+        .waitForElementVisible('.book__actions [data-ref=removeFromList]');
+
+        browser
+            .url(BASE_URL)
+            .waitForElementVisible('body')
+            .waitForElementVisible('.booklist .book')
+
+        browser.expect.elements('.booklist .book').count.to.equal(9);
+
+    });
+
     test('Deberia mostrar el footer en el home', browser => {
         browser
             .url(BASE_URL)
             .waitForElementVisible('footer')
+    });
+
+    test('Deberia mostrar los bordes de las cards', browser => {
+        browser
+            .url(BASE_URL)
+            .waitForElementVisible('body')
+            .waitForElementVisible('.booklist')
+            .pause(400)
+            .moveToElement('body > main > div > div.books-container > div > a:nth-child(1) > div', 10, 10, function() {
+            browser.assert.cssProperty('body > main > div > div.books-container > div > a:nth-child(1) > div', 'border', '3px solid rgb(128, 128, 128)')
+            })
+
     });
 
 });
@@ -281,4 +320,47 @@ describe('Detail view', () => {
             .url(BASE_URL)
             .waitForElementVisible('footer')
     });
+
+    test('Deberia mostrar el ISBN en los libros', browser => {
+        browser
+            .url(BASE_URL + '/detail/1')
+            .waitForElementVisible('body')
+            .waitForElementVisible('.book__body')
+            .waitForElementVisible('.book__extra-info')
+            browser.expect
+            .element('.book__extra-info').text.to.contains('El ISBN del libro es 9788499089515');
+    });
+
+    test('Deberia mostrar la cantidad de paginas en los detalles del libro', browser => {
+        browser
+            .url(BASE_URL + '/detail/1')
+            .waitForElementVisible('body')
+            .waitForElementVisible('.book__body')
+            .waitForElementVisible('.book__extra-info')
+            browser.expect
+            .element('.book__extra-info').text.to.contains('Consta de 100 paginas');
+    });
+
+    test('Deberia mostrar el boton para comprar el libro', browser => {
+        browser
+            .url(BASE_URL + '/detail/1')
+            .waitForElementVisible('body')
+            .waitForElementVisible('.comprar')
+    });
+
+    test('Deberia redirigirme a amazon al presionar el boton comprar', browser => {
+        browser
+            .url(BASE_URL + '/detail/1')
+            .waitForElementVisible('body')
+            .waitForElementVisible('.comprar')
+            .click('.comprar')
+            .waitForElementVisible('body');
+        browser.expect
+            .url().contains('https://www.amazon.com/s?k=El+Aleph+Jorge+Luis+Borges');
+    });
+
+
+
+
 });
+

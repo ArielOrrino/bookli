@@ -18,12 +18,20 @@
                 <span class="highlight">{{ book.publisher }}</span>.
             </p>
             <p>
+                El ISBN del libro es
+                <span class="highlight">{{ book.isbn }}</span>.
+            </p>
+            <p>
                 La primera edición se realizo en
                 <span class="highlight">{{ book.country }}</span>.
             </p>
             <p>
 		Es un libro perteneciente a los géneros:
                 <span class="highlight">{{ book.genres | join(', ') }}</span>.
+            </p>
+            <p>
+                Consta de
+                <span class="highlight">{{ book.quantity_pages}}</span> paginas.
             </p>
         </div>
         {% endif %}
@@ -67,7 +75,8 @@
 
 {% if detail %}
 
-<button style="margin-top:10px" class="btn btn-primary back" id="back" onclick="history.back()"> Atras </button>
+<button style="margin-top:10px" class="btn btn-primary back" id="back" onclick="window.location = document.referrer"> Atras </button>
+<button style="margin-top:10px; margin-left: 10px;" class="btn btn-danger comprar" id="comprar" onclick="window.location.href = 'https://www.amazon.com/s?k={{ book.title }}+{{ book.authors | join(', ') }}';"> Comprar </button>
 
 {% endif %}
 
