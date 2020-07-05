@@ -76,6 +76,7 @@
 {% if detail %}
 
 <button style="margin-top:10px" class="btn btn-primary back" id="back" onclick="window.location = document.referrer"> Atras </button>
+<button style="margin-top:10px; margin-left: 10px;" class="btn btn-danger comprar" id="comprar" onclick="window.location.href = 'https://www.amazon.com/s?k={{ book.title }}+{{ book.authors | join(', ') }}';"> Comprar </button>
 
 {% endif %}
 
